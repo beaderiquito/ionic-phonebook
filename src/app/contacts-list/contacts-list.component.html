@@ -10,12 +10,16 @@
                 <ion-icon name="trash-outline" size="large"></ion-icon>
             </ion-item-option>
         </ion-item-options>
-        <ion-item href="" detail="false">
-            <ion-avatar slot="start">
-                <img src="{{PLACEHOLDER}}">
-            </ion-avatar>
-            <ion-label>Item 1</ion-label>
-        </ion-item>
+        
+        <a [routerLink]="['/contact-details']">
+            <ion-item detail="false">
+                <ion-avatar slot="start">
+                    <img src="{{PLACEHOLDER}}">
+                </ion-avatar>
+                <ion-label>Item 1</ion-label>
+            </ion-item>
+        </a>
+        
     </ion-item-sliding>
 
     <ion-item-sliding>
@@ -24,11 +28,13 @@
                 <ion-icon name="trash-outline" size="large"></ion-icon>
             </ion-item-option>
         </ion-item-options>
-        <ion-item href="" detail="false">
-            <ion-avatar slot="start">
-                <img src="{{PLACEHOLDER}}">
-            </ion-avatar>
-            <ion-label>Item 2</ion-label>
-        </ion-item>
+        <a [routerLink]="['/contact-details']">
+            <ion-item detail="false">
+                <ion-avatar slot="start">
+                    <img src="{{PLACEHOLDER}}">
+                </ion-avatar>
+                <ion-label>Item 2</ion-label>
+            </ion-item>
+        </a>
     </ion-item-sliding>
 </ion-list>
