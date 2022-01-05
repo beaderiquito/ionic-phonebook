@@ -8,3 +8,13 @@
 .second-subitem {
     margin-left: 42px;
 }
+
+#options {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    width: max-content;
+    margin: auto;
+}
