@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contacts-list.component.scss'],
 })
 export class ContactsListComponent implements OnInit {
+  public BLANK_AVATAR ='https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y';
 
   constructor() { }
 
