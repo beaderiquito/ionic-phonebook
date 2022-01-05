@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-details.page.scss'],
 })
 export class ContactDetailsPage implements OnInit {
+  public PLACEHOLDER ='https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y';
 
   constructor() { }
 

@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>contact-details</ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="arrow-back-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-buttons slot="end">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-avatar id="contact-img">
+    <ion-img class="round-image" src="{{PLACEHOLDER}}"></ion-img>
+  </ion-avatar>
 
 </ion-content>
