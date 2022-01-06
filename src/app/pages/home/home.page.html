@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+   <ion-toolbar id="toolbar">
+    <ion-searchbar id="searchbar" slot="start"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/create-contact']">
+        <ion-icon name="add-outline" id="add-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-contacts-list></app-contacts-list>
+</ion-content>

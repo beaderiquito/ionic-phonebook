@@ -5,8 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { ContactsListComponent } from '../contacts-list/contacts-list.component';
-
+import { ContactsListComponent } from 'src/app/components/contacts-list/contacts-list.component';
 
 @NgModule({
   imports: [

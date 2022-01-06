@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">
+        <ion-icon slot="icon-only" name="arrow-back-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Create contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-avatar id="contact-img">
+    <ion-img src="{{PLACEHOLDER}}"></ion-img>
+  </ion-avatar>
+  <ion-list>
+    <ion-list-header class="ion-text-center ion-no-padding">
+      <ion-input placeholder="Name" [(ngModel)]="name"></ion-input>
+    </ion-list-header>
+
+    <ion-item lines="none">
+      <ion-icon name="call-outline" class="ion-padding-end"></ion-icon>
+      <ion-input placeholder="Mobile Number" [(ngModel)]="mobileNumber"></ion-input>
+    </ion-item>
+    <ion-item lines="none" class="second-subitem">
+      <ion-input placeholder="Work Phone" [(ngModel)]="workNumber"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="mail-outline" class="ion-padding-end"></ion-icon>
+      <ion-input placeholder="Personal Email" [(ngModel)]="personalEmail"></ion-input>
+    </ion-item>
+    <ion-item lines="none" class="second-subitem">
+      <ion-input placeholder="Work Email" [(ngModel)]="workEmail"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" id="options" class="ion-no-padding ion-align-items-center">
+      <ion-button class="ion-text-center" (click)="addContact()">Save</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -14,25 +14,29 @@
   </ion-avatar>
   <ion-list>
     <ion-list-header class="ion-text-center ion-no-padding">
-      <ion-label>John Doe</ion-label>
+      <ion-label>{{contact.name}}</ion-label>
     </ion-list-header>
 
     <ion-item lines="none">
       <ion-icon name="call-outline" class="ion-padding-end"></ion-icon>
-      <ion-label>09268505719<br>
+      <ion-label>{{contact.mobileNumber}}<br>
         <small>mobile</small>
       </ion-label>
-      
+    </ion-item>
+    <ion-item lines="none" class="second-subitem">
+      <ion-label>{{contact.workNumber}}<br>
+        <small>work</small><br>
+      </ion-label>
     </ion-item>
 
     <ion-item lines="none">
       <ion-icon name="mail-outline" class="ion-padding-end"></ion-icon>
-      <ion-label>johndoe@home.com<br>
-        <small>home</small><br>
+      <ion-label>{{contact.personalEmail}}<br>
+        <small>personal</small><br>
       </ion-label>
     </ion-item>
     <ion-item lines="none" class="second-subitem">
-      <ion-label>johndoe@work.com<br>
+      <ion-label>{{contact.workEmail}}<br>
         <small>work</small><br>
       </ion-label>
     </ion-item>
