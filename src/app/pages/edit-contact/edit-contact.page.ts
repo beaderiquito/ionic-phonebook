@@ -126,7 +126,7 @@ export class EditContactPage implements OnInit {
   async showAlert(){
     const alert = await this.alertController.create({
       header: 'Are you sure?',
-      message: 'Are you sure you want to exit? All unsave changes will be discarded.',
+      message: 'Are you sure you want to exit? All unsaved changes will be discarded.',
       buttons: [{
         text: 'Cancel',
         role: 'cancel',
