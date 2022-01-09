@@ -38,7 +38,7 @@ export class ContactsListPage {
     } else {
       this.contactsService.getContacts()
         .then( (contacts) => {
-          this.contacts = contacts.filter((contact) => {return contact.name.toLowerCase().includes(this.searchTerm)});
+          this.contacts = contacts.filter((contact) => {return contact.name.toLowerCase().includes(this.searchTerm.toLowerCase())});
           console.log('Contacts successfully loaded.');
         })
         .catch( (err) => { console.log(err)});
