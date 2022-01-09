@@ -11,16 +11,22 @@ import { ContactsService } from 'src/app/services/contacts.service';
 export class ContactDetailsPage implements OnInit {
   public PLACEHOLDER ='https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y';
   public id:string = "";
-  public contact:Contact;
+  public contact: Contact;
   constructor(private route: ActivatedRoute, private contactsService: ContactsService) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.contact = this.getContact(this.id);
+    this.getContact(this.id);
   }
 
   getContact(id: string){
-    return this.contactsService.findContactById(id);
+    this.contactsService.findContactById(id)
+    .then(contact => {
+      this.contact = contact;
+      console.log('Contact successfully loaded.');
+      console.log(contact);
+    })
+    .catch(err => { console.log(err)});
   }
 
 }

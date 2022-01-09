@@ -1,3 +1,5 @@
+import { UserPhoto } from "./userPhoto.model";
+
 export class Contact {
     id: string;
     name: string;
@@ -5,4 +7,5 @@ export class Contact {
     workNumber: string;
     personalEmail: string;
     workEmail: string;
+    photo: string;
 }

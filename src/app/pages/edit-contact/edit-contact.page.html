@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="showAlert()">
+        <ion-icon slot="icon-only" name="arrow-back-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>View / edit contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  
+  <div class="img-container">
+    <ion-avatar class="contact-img">
+      <ion-img *ngIf="photo===undefined || photo===''" [src]="PLACEHOLDER" (click)="showActionSheet()"></ion-img>
+      <ion-img *ngIf="photo" [src]="photo" (click)="showActionSheet()"></ion-img>
+    </ion-avatar>
+    <ion-fab class="add-image-button" color="primary" slot="fixed" size="small">
+      <ion-fab-button (click)="takePhoto()">
+        <ion-icon name="camera-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-input type="text" class="name" [(ngModel)]="name" name="name"></ion-input>
+  </div>
+
+  <ion-list>
+    <ion-item lines="none">
+      <ion-icon slot="start" name="phone-portrait-outline" class="ion-padding-top"></ion-icon>
+      <ion-label position="stacked">Mobile number</ion-label>
+      <ion-input [(ngModel)]="mobileNumber"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon slot="start" name="call-outline" class="ion-padding-top"></ion-icon>
+      <ion-label position="stacked">Work phone</ion-label>
+      <ion-input [(ngModel)]="workNumber"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon slot="start" name="mail-outline" class="ion-padding-top"></ion-icon>
+      <ion-label position="stacked">Personal Email</ion-label>
+      <ion-input [(ngModel)]="personalEmail"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon slot="start" name="briefcase-outline" class="ion-padding-top"></ion-icon>
+      <ion-label position="stacked">Work Email</ion-label>
+      <ion-input [(ngModel)]="workEmail"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-padding-top">
+      <ion-col size="12" class="ion-text-center">
+        <ion-button [disabled]="name===''" color="primary" (click)="save()">Save</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

@@ -1,7 +1,25 @@
-#contact-img {
+.img-container {
+    width: 120px;
+    margin: 20px auto 0px; 
+}
+
+.contact-img {
     width: 120px;
     height: 120px;
-    margin: 20px auto 0px;
+    margin: 0px auto;
+}
+
+.add-image-button {
+    position: relative;
+    top: -30px;
+    left: 70px;
+}
+
+.name {
+    position: relative;
+    top: -40px;
+    text-align: center;
+    font-size: 28px;
 }
 
 //calculate size of icon

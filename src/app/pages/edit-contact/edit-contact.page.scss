@@ -1,0 +1,16 @@
+@import url(../create-contact/create-contact.page.scss);
+
+//calculate size of icon
+.second-subitem {
+    margin-left: 44px;
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    width: max-content;
+    margin: auto;
+}

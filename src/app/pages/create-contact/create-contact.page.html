@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button [routerLink]="['/home']">
+      <ion-button (click)="showAlert()">
         <ion-icon slot="icon-only" name="arrow-back-outline" size="large"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -9,33 +9,51 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-avatar id="contact-img">
-    <ion-img src="{{PLACEHOLDER}}"></ion-img>
-  </ion-avatar>
+<ion-content fullscreen="true">
+  
+  <div class="img-container">
+    <ion-avatar class="contact-img">
+      <ion-img *ngIf="photo===undefined || photo===''" [src]="PLACEHOLDER"></ion-img>
+      <ion-img *ngIf="photo" [src]="photo"></ion-img>
+    </ion-avatar>
+    <ion-fab class="add-image-button" color="primary" slot="fixed" size="small">
+      <ion-fab-button (click)="takePhoto()">
+        <ion-icon name="camera-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-input type="text" class="name" placeholder="Name" [(ngModel)]="name" name="name"></ion-input>
+  </div>
+  
+  
+  
   <ion-list>
-    <ion-list-header class="ion-text-center ion-no-padding">
-      <ion-input placeholder="Name" [(ngModel)]="name"></ion-input>
-    </ion-list-header>
-
     <ion-item lines="none">
-      <ion-icon name="call-outline" class="ion-padding-end"></ion-icon>
+      <ion-icon slot="start" name="phone-portrait-outline"></ion-icon>
       <ion-input placeholder="Mobile Number" [(ngModel)]="mobileNumber"></ion-input>
     </ion-item>
-    <ion-item lines="none" class="second-subitem">
+
+    <ion-item lines="none">
+      <ion-icon slot="start" name="call-outline"></ion-icon>
       <ion-input placeholder="Work Phone" [(ngModel)]="workNumber"></ion-input>
     </ion-item>
 
     <ion-item lines="none">
-      <ion-icon name="mail-outline" class="ion-padding-end"></ion-icon>
-      <ion-input placeholder="Personal Email" [(ngModel)]="personalEmail"></ion-input>
-    </ion-item>
-    <ion-item lines="none" class="second-subitem">
-      <ion-input placeholder="Work Email" [(ngModel)]="workEmail"></ion-input>
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-input  placeholder="Personal Email" [(ngModel)]="personalEmail"></ion-input>
     </ion-item>
 
-    <ion-item lines="none" id="options" class="ion-no-padding ion-align-items-center">
-      <ion-button class="ion-text-center" (click)="addContact()">Save</ion-button>
+    <ion-item lines="none">
+      <ion-icon slot="start" name="briefcase-outline"></ion-icon>
+      <ion-input  placeholder="Work Email" [(ngModel)]="workEmail"></ion-input>
     </ion-item>
   </ion-list>
+
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-padding-top">
+      <ion-col size="12" class="ion-text-center">
+        <ion-button [disabled]="name===''" color="primary" (click)="addContact()">Save</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
 </ion-content>

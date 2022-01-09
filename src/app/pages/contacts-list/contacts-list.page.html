@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar id="toolbar">
+   <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="search()" showCancelButton="focus" id="searchbar" slot="start" animated></ion-searchbar>
+   <ion-buttons slot="end">
+     <ion-button (click)="createContact()">
+       <ion-icon name="add-outline" id="add-button"></ion-icon>
+     </ion-button>
+   </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <!-- List of Contacts -->
+	<ion-list>
+		<ion-item-divider>
+			<ion-label>Contacts</ion-label>
+		</ion-item-divider>
+ 
+		<ion-item-sliding *ngFor="let contact of contacts" #slidingItem>
+			<ion-item-options side="start">
+				<ion-item-option (click)="deleteContact(contact, slidingItem)" color="danger">
+					<ion-icon name="trash-outline" size="large"></ion-icon>
+				</ion-item-option>
+			</ion-item-options>
+			<ion-item-options side="end">
+				<ion-item-option (click)="edit(contact.id)" color="primary">
+					<ion-icon name="create-outline" size="large"></ion-icon>
+				</ion-item-option>
+			</ion-item-options>
+			<ion-item detail="false" (click)="viewContact(contact.id)">
+				<ion-avatar slot="start">
+					<img *ngIf="contact.photo" [src]="contact.photo">
+					<img *ngIf="!contact.photo" [src]="PLACEHOLDER">
+				</ion-avatar>
+				<ion-label>{{contact.name}}</ion-label>
+			</ion-item>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>
