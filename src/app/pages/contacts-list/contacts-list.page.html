@@ -10,7 +10,11 @@
 </ion-header>
 
 <ion-content>
- <!-- List of Contacts -->
+	<ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+
+ 	<!-- List of Contacts -->
 	<ion-list>
 		<ion-item-divider>
 			<ion-label>Contacts</ion-label>

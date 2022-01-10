@@ -67,4 +67,13 @@ export class ContactsListPage {
   async viewContact(id: string){
     await this.router.navigate(['contacts/', id]);
   }
+
+  async refresh(event) {
+    
+    setTimeout( async () => {
+      await this.getContacts();
+      event.target.complete();
+    }, 1000);
+    
+  }
 }
