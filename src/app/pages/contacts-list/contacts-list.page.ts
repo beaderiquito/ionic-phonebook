@@ -19,10 +19,12 @@ export class ContactsListPage {
       this.contactsService.init()
   }
 
+  // Gets contacts when view is entered
   async ionViewDidEnter(){
     this.getContacts();
   }
 
+  // Loads all contacts
   async getContacts(){
     this.contactsService.getContacts()
     .then( (contacts) => {
@@ -32,6 +34,7 @@ export class ContactsListPage {
     .catch( (err) => { console.log(err)});
   }
 
+  // Search bar functionality
   async search(){
     if(!this.searchTerm){
       this.getContacts();
@@ -46,22 +49,20 @@ export class ContactsListPage {
     
   }
 
+  // Deletes contact
   async deleteContact(contact: Contact, slidingItem){ 
     await this.contactsService.deleteContact(contact.id);
     slidingItem.close;
     this.getContacts();
   }
 
+  // Navigates to create-contact page
   async createContact(){
     await this.router.navigate(['create-contact']);
   }
 
+  // Select contact
   async viewContact(id: string){
     await this.router.navigate(['contacts/', id]);
   }
-
-  async edit(id: string){
-    await this.router.navigate(['contacts/', id]);
-  }
-
 }

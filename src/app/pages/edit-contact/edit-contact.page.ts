@@ -5,8 +5,6 @@ import { Contact } from 'src/app/models/contact.model';
 import { ContactsService } from 'src/app/services/contacts.service';
 import { PhotoService } from 'src/app/services/photo.service';
 
-
-
 @Component({
   selector: 'app-edit-contact',
   templateUrl: './edit-contact.page.html',
@@ -33,15 +31,18 @@ export class EditContactPage implements OnInit {
   public photo: string = "";
 
   ngOnInit() {
+    // Get contact id
     this.id = this.route.snapshot.paramMap.get('id');
     this.getContact(this.id);
     this.loadPhoto();
   }
 
+  // Load photo saved in storage from photo page
   ionViewDidEnter(){
     this.loadPhoto();
   }
 
+  // Load contact details
   getContact(id: string){
     this.contactsService.findContactById(id)
     .then(contact => {
@@ -53,6 +54,7 @@ export class EditContactPage implements OnInit {
     .catch(err => { console.log(err)});
   }
 
+  // Set values of input to that of contact details
   setValues(contact: Contact){
     this.name = contact.name;
     this.mobileNumber = contact.mobileNumber;
@@ -62,6 +64,7 @@ export class EditContactPage implements OnInit {
     this.photo = contact.photo;
   }
   
+  // Save edit
   save(){
     const editedContact:Contact = {
       id: this.id,
@@ -77,10 +80,12 @@ export class EditContactPage implements OnInit {
     this.router.navigate(['contacts-list']);
   }
 
+  // Navigate to photo page
   takePhoto(){
     this.router.navigate(['photo', this.id]);
   }
 
+  // Load photo saved in storage from photo page
   async loadPhoto(){
     const cachedPhoto = await this.photoService.loadSelectedPhoto();
     if(cachedPhoto.length !== 0){
@@ -91,6 +96,7 @@ export class EditContactPage implements OnInit {
     }
   }
 
+  // Show action sheet upon selecting a photo
   public async showActionSheet(){
     const actionSheet = await this.actionSheetController.create({
       header: 'Photo Gallery',
@@ -119,10 +125,12 @@ export class EditContactPage implements OnInit {
     await actionSheet.present();
   }
 
+  // Delete contact photo
   deletePhoto(){
     this.photo = "";
   }
 
+  // Show alert when user clicks 'go back' button
   async showAlert(){
     const alert = await this.alertController.create({
       header: 'Are you sure?',

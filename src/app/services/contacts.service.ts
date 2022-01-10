@@ -12,16 +12,20 @@ export class ContactsService {
     this.init();
   }
 
+  // Create storage
   async init() {
     await this.storage.create();
   }
 
+
+  // Add contact
   async addContact(contact: Contact) {
     const contacts = await this.storage.get(CONTACTS_STORAGE_KEY) || [];
     contacts.push(contact);
     return this.storage.set(CONTACTS_STORAGE_KEY, contacts);
   }
 
+  // Delete contact
   async deleteContact(id: string){
     const contacts = await this.storage.get(CONTACTS_STORAGE_KEY);
     const newContacts: Contact[] = [];
@@ -33,16 +37,19 @@ export class ContactsService {
     this.storage.set(CONTACTS_STORAGE_KEY, newContacts);
   }
 
+  // Load contacts from storage
   async getContacts(): Promise<Contact[]> {
     return await this.storage.get(CONTACTS_STORAGE_KEY) || [];
   }
 
+  // Looks for contact by id
   async findContactById(id: string){
     const contacts = await this.storage.get(CONTACTS_STORAGE_KEY);
     const result = contacts.find(contact => contact.id===id);
     return result;
   }
 
+  // Update contact details
   async updateContact(newContact: Contact): Promise<Contact[]>{
     const contacts = await this.getContacts();
     let newContacts: Contact[] = [];
