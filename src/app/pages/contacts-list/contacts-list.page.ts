@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactsService } from 'src/app/services/contacts.service';
+import { RandomUserService } from 'src/app/services/random-user.service';
 
 @Component({
   selector: 'app-contacts-list',
@@ -9,19 +10,19 @@ import { ContactsService } from 'src/app/services/contacts.service';
   styleUrls: ['./contacts-list.page.scss'],
 })
 export class ContactsListPage {
+  public data;
   public searchTerm:string = "";
   public contacts: Contact[];
   public PLACEHOLDER ='https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y';
 
   constructor(
     private contactsService: ContactsService, 
-    private router: Router) {
-      this.contactsService.init()
-  }
+    private router: Router,
+    private randomUserService: RandomUserService) {  }
 
   // Gets contacts when view is entered
   async ionViewDidEnter(){
-    this.getContacts();
+    await this.getContacts();
   }
 
   // Loads all contacts
@@ -29,7 +30,6 @@ export class ContactsListPage {
     this.contactsService.getContacts()
     .then( (contacts) => {
       this.contacts = contacts.sort((a,b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
-      console.log('Contacts successfully loaded.');
     })
     .catch( (err) => { console.log(err)});
   }
@@ -38,15 +38,17 @@ export class ContactsListPage {
   async search(){
     if(!this.searchTerm){
       this.getContacts();
-    } else {
+    } 
+    else {
       this.contactsService.getContacts()
-        .then( (contacts) => {
-          this.contacts = contacts.filter((contact) => {return contact.name.toLowerCase().includes(this.searchTerm.toLowerCase())});
-          console.log('Contacts successfully loaded.');
-        })
-        .catch( (err) => { console.log(err)});
+      .then( (contacts) => {
+        this.contacts = contacts.filter((contact) => {
+          return contact.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        });
+        console.log('Contacts successfully loaded.');
+      })
+      .catch( (err) => { console.log(err)});
     }
-    
   }
 
   // Deletes contact

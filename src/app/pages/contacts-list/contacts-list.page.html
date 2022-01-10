@@ -1,9 +1,9 @@
 <ion-header [translucent]="true">
-  <ion-toolbar id="toolbar">
+  <ion-toolbar id="toolbar" color="dark">
    <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="search()" showCancelButton="focus" id="searchbar" slot="start" animated></ion-searchbar>
    <ion-buttons slot="end">
      <ion-button (click)="createContact()">
-       <ion-icon name="add-outline" id="add-button" color="primary"></ion-icon>
+       <ion-icon name="add-outline" id="add-button" color="light" size="large"></ion-icon>
      </ion-button>
    </ion-buttons>
  </ion-toolbar>
