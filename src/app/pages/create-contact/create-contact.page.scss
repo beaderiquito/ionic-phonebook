@@ -1,5 +1,5 @@
 .img-container {
-    width: 120px;
+    width: 350px;
     margin: 20px auto 0px; 
 }
 
@@ -12,7 +12,7 @@
 .add-image-button {
     position: relative;
     top: -30px;
-    left: 70px;
+    left: 190px;
 }
 
 .name {
@@ -25,14 +25,4 @@
 //calculate size of icon
 .second-subitem {
     margin-left: 44px;
-}
-
-#options {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    text-align: center;
-    width: max-content;
-    margin: auto;
 }
